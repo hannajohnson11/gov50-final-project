@@ -15,3 +15,54 @@ I am interested in exploring data related to the role of women in politics, part
 
 ## Research question and data
 My project is motivated by one research question: do gender ministries (departments focused on women's rights) reduce rates of violence against women?  I hypothesize that it does reduce violence against women and predict that statistics will be lower in countries with these departments, especially if the leader of this department is a woman, as it is well-established that when someone takes office, they are more likely to advocate for the interests of their own group.  In other words, a woman in office, especially a gender-focused office, is likely to accomplish something tangible due to the impacts of representation, exposure, and substantive representation.  However, I also acknowledge that the statistics could also be higher, due to an increased accessibility and feeling of safety to report violence against women when it occurs. Unfortunately, this is not data that is readily available.  I plan to create the data for the gender ministries by manually searching to determine which countries have a gender ministry (which I will code as 1) and which do not (which I will code as 0) and include the year they started it, if they have one.  Then, I plan to contrast this with data provided through the OECD data on violence against women statistics over different years and different countries and use their data on these statistics, which includes attitudes toward violence, prevalence of violence in the lifetime, and laws on domestic violence.  I am not sure which of the three I plan to use quite yet, but may look at the relationship between all three as a starting point before I decide.  Attitude toward violence and prevalence of violence are both coded in percentages, and laws are coded in "0" and "1" which correlate to laws that don't discriminate against victims and laws that do, respectively.  There is only one year available for this metric (2019) so I will likely disregard any states that have started gender ministries after 2019. (The data is linked here https://data.oecd.org/inequality/violence-against-women.htm)  Patterns that would support my hypothesis are if countries with gender ministries reliably had lower rates of violence against women, but I would likely want to control for the laws present there too, although I would assume that the countries with a gender ministry are also less likely to have laws that hurt survivors, but that is not guaranteed to be true.  My hypothesis could be proven wrong if there appeared to be no relationship, or if numbers were significantly higher, although that could also be due to an increased number of reports due to more trust in the system and more protection, not necessarily a higher rate of violence.
+
+
+
+```{r include=FALSE}
+library(tidyverse)
+
+vaw <- read.csv("OECD_VAW.csv")
+vaw
+
+laws <- read.csv("LAWS.csv")
+laws
+
+prevalence <- read.csv("PREVALENCE.csv")
+prevalence
+
+attitudes <- read.csv("ATTITUDES.csv")
+attitudes
+
+prevalence_and_laws <- read.csv("PREVALENCE_LAWS.csv")
+prevalence_and_laws
+
+laws_and_attitudes <- read.csv("LAWS_ATTITUDES.csv")
+laws_and_attitudes
+
+attitudes_and_prevalence <- read.csv("ATTITUDES_PREVALENCE.csv")
+attitudes_and_prevalence
+```
+```{r include=FALSE}
+laws$LOCATION[2] <- "AUT"
+```
+
+```{r include=FALSE}
+no_ministry_countries <- c("HUN","ISL","IRL","USA","ALB","ARM","BLR","CHN","HRV","GEO","HKG","KAZ","LVA","MDA","PHL","ROU","RUS","SAU","SGP","SDN","THA","UKR","ARE","URY","BHR","BTN","BOL","COG","CUB","ECU","SLV","ERI","GAB","GTM","GNB","IRQ","KGZ","LAO","MNG","MMR","OMN","PNG","QAT","SWZ","SYR","TJK","TLS","TGO","TKM","UZB","YEM","BRN","MLT","TWN","PAK","KWT", "SRB")
+
+laws_2 <- laws |>
+  mutate(Gender_Ministry = 1) |>
+  mutate(Gender_Ministry = if_else(LOCATION %in% no_ministry_countries, 0, Gender_Ministry))
+```
+```{r echo=FALSE}
+laws_plot <- ggplot(data = laws_2) +
+geom_histogram(mapping = aes(x = Value, y = ..prop..), stat = "count", binwidth = 0.1) +
+  # xlim(0, 1) +
+  scale_x_continuous(breaks=c(0, 0.25, 0.5, 0.75, 1),
+        labels=c("0", "0.25", "0.5","0.75","1")) +
+  labs(x = "Presence of Laws that Harm Women",
+       y = "Percentage of Countries with a Gender Ministry")
+laws_plot + facet_wrap(~Gender_Ministry) 
+```
+## Analysis
+
+
