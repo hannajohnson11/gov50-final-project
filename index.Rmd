@@ -1,7 +1,7 @@
 ---
 title: "Gov 50 Final Project"
 author: Hanna Johnson
-description: "My final project"
+description: "Hanna Johnson's final project for Gov50 on the relationship between countries with gender ministries and violence against women"
 output:
   distill::distill_article:
     self_contained: false
@@ -63,6 +63,5 @@ geom_histogram(mapping = aes(x = Value, y = ..prop..), stat = "count", binwidth 
        y = "Percentage of Countries with a Gender Ministry")
 laws_plot + facet_wrap(~Gender_Ministry) 
 ```
-## Analysis
-
-
+## Visualization Interpretation
+This visualization demonstrates that for countries with a gender ministry, there are fewer countries with harmful laws about violence against women, where the most harmful laws are 1 and the least harmful laws are 0.  It is notable that gender ministry is an expansive category here, including countries with a distinct Ministry of Gender, but also countries with a combined ministry, such as Ministry of Family and Gender, or Ministry of Social Issues with gender as a primary focus.  Countries without a gender ministry are countries that lack all of these ministry options.  Thus, in each category of laws, in categories which mean more harmful laws, including 1 and 0.75 are more highly represented in the countries without a gender ministry or an office tangential to a gender ministry.  For countries with fewer harmful laws, including 0.5 and 0.25, countries with a gender ministry or an office adjacent to it are more highly represented.
