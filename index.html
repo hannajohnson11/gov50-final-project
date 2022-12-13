@@ -1517,21 +1517,528 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<h2 id="project-thoughts">Project thoughts</h2>
+<h2 id="introduction">Introduction</h2>
+<!-- an introduction where you introduce the research question and hypothesis and briefly describe why it is interesting;-->
+<!-- An introduction section introducing your research question (a paragraph or two) -->
 <p>I am interested in exploring data related to the role of women in politics, particularly whether or not the existence of an office or position dedicated to the advancement of women’s rights in the government is correlated with a higher percentage of “female-friendly” policies. I am currently unsure how to define “female-friendly” policies, but they will likely be policies that primarily effect women (i.e. domestic/sexual violence, women’s rights to do something like voting or driving, the menstrual cycles, maternity leave and protections of mothers during pregnancy and after birth, accessibility to affordable and safe birth control, legal right to an abortion, etc). I am also interested in looking at the existence of these agencies to see if they lead to a a decrease in crimes against women or a more positive perception of women’s competence and a decrease in both subtle and classic sexism.</p>
-<h2 id="research-question-and-data">Research question and data</h2>
+<h2 id="data">Data</h2>
+<!-- a data section that briefly describes the data source, describes how the key dependent and independent variables are measured (e.g., a survey, statistical model, or expert coding), and also produces a plot that summarizes the dependent variable;  -->
+<!-- for the data section, you should note if your research design is cross-sectional (most projects will be of this type) or one of the other designs we discussed (randomized experiment, before-and-after, differences-in-differences). -->
+<!-- A section describing your data, including the type of research design (e.g. experimental, cross-sectional, longitudinal, etc.) and a plot that summarizes the dependent variable (the length here may depend on how complicated your data is, but most data sections will be a couple of paragraphs) -->
 <p>My project is motivated by one research question: do gender ministries (departments focused on women’s rights) reduce rates of violence against women? I hypothesize that it does reduce violence against women and predict that statistics will be lower in countries with these departments, especially if the leader of this department is a woman, as it is well-established that when someone takes office, they are more likely to advocate for the interests of their own group. In other words, a woman in office, especially a gender-focused office, is likely to accomplish something tangible due to the impacts of representation, exposure, and substantive representation. However, I also acknowledge that the statistics could also be higher, due to an increased accessibility and feeling of safety to report violence against women when it occurs. Unfortunately, this is not data that is readily available. I plan to create the data for the gender ministries by manually searching to determine which countries have a gender ministry (which I will code as 1) and which do not (which I will code as 0) and include the year they started it, if they have one. Then, I plan to contrast this with data provided through the OECD data on violence against women statistics over different years and different countries and use their data on these statistics, which includes attitudes toward violence, prevalence of violence in the lifetime, and laws on domestic violence. I am not sure which of the three I plan to use quite yet, but may look at the relationship between all three as a starting point before I decide. Attitude toward violence and prevalence of violence are both coded in percentages, and laws are coded in “0” and “1” which correlate to laws that don’t discriminate against victims and laws that do, respectively. There is only one year available for this metric (2019) so I will likely disregard any states that have started gender ministries after 2019. (The data is linked here <a href="https://data.oecd.org/inequality/violence-against-women.htm" class="uri">https://data.oecd.org/inequality/violence-against-women.htm</a>) Patterns that would support my hypothesis are if countries with gender ministries reliably had lower rates of violence against women, but I would likely want to control for the laws present there too, although I would assume that the countries with a gender ministry are also less likely to have laws that hurt survivors, but that is not guaranteed to be true. My hypothesis could be proven wrong if there appeared to be no relationship, or if numbers were significantly higher, although that could also be due to an increased number of reports due to more trust in the system and more protection, not necessarily a higher rate of violence.</p>
+<h2 id="results">Results</h2>
+<!-- a visualization of the data in question that speaks to your research question -->
+<!-- a presentation (as a table or graph) of a regression model assessing your question along with a plain-English interpretation -->
+<!-- a results section that contains a scatterplot, barplot, or boxplot of the main relationship of interest and output for the main regression of interest;  -->
+<!-- For the results section, you should interpret (in plain English) the main coefficient of interest in your regression. You should also comment on the statistical significance of the estimated coefficient and whether or not you believe the coefficient to represent a causal effect. -->
+<!-- A results section, including a presentation of your regression results (either a plot or a table), a separate plot of the main relationship of interest (e.g. a scatterplot of the outcome and the main independent variable), and as well as a summary and discussion of results in substantive context (a paragraph or two).  -->
+<!-- You should include at least one multiple regression (i.e. regression with multiple explanatory/independent variables) in your analysis, but note that you're not graded on the results themselves (like whether you see any statistical significance). -->
+<!-- You should also interpret (in plain English) the main coefficient of interest in your regression, comment on the statistical significance of the estimated coefficient, and  say whether or not you believe the coefficient to represent a causal effect. -->
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="index_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
-<h2 id="visualization-interpretation">Visualization Interpretation</h2>
 <p>This visualization demonstrates that for countries with a gender ministry, there are fewer countries with harmful laws about violence against women, where the most harmful laws are 1 and the least harmful laws are 0. It is notable that gender ministry is an expansive category here, including countries with a distinct Ministry of Gender, but also countries with a combined ministry, such as Ministry of Family and Gender, or Ministry of Social Issues with gender as a primary focus. Countries without a gender ministry are countries that lack all of these ministry options. Thus, in each category of laws, in categories which mean more harmful laws, including 1 and 0.75 are more highly represented in the countries without a gender ministry or an office tangential to a gender ministry. For countries with fewer harmful laws, including 0.5 and 0.25, countries with a gender ministry or an office adjacent to it are more highly represented.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
-<h2 id="second-visualization-interpretation">Second Visualization Interpretation</h2>
-<p>This was my first attempt at trying to answer my research question on whether or not having a Ministry of Gender is correlated with better outcomes for women, particularly on violence against women. This visualization demonstrates that the rates of violence against women is similar for countries with and without a Gender Ministry, with higher reported rates of violence for countries with a Gender Ministry, although it is currently unclear whether or not that violence is statistically significant. The prevalence is measured in a percent of women who both experience and report violence against women, ranging from 0 to 100, although no countries reported a rate of 100. However, it is notable to mention that over 30 countries included in the original laws data, displayed in my first visualization, did not submit reports of violence against women, many of which are countries that do not have a gender ministry. Thus, these results could be skewed by the fact that many countries, including those without a Gender Ministry, did not submit and may have interfered with the data. Moreover, this also relies on reported violence against women, which is infamously extremely under-reported, so it is possible that higher reported prevalence of violence against women could actually be positive, since it could mean that women felt safe enough to report violence, which could have been facilitated by the presence of a Gender Ministry.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+This was my first attempt at trying to answer my research question on whether or not having a Ministry of Gender is correlated with better outcomes for women, particularly on violence against women. This visualization demonstrates that the rates of violence against women is similar for countries with and without a Gender Ministry, with higher reported rates of violence for countries with a Gender Ministry, although it is currently unclear whether or not that violence is statistically significant. The prevalence is measured in a percent of women who both experience and report violence against women, ranging from 0 to 100, although no countries reported a rate of 100. However, it is notable to mention that over 30 countries included in the original laws data, displayed in my first visualization, did not submit reports of violence against women, many of which are countries that do not have a gender ministry. Thus, these results could be skewed by the fact that many countries, including those without a Gender Ministry, did not submit and may have interfered with the data. Moreover, this also relies on reported violence against women, which is infamously extremely under-reported, so it is possible that higher reported prevalence of violence against women could actually be positive, since it could mean that women felt safe enough to report violence, which could have been facilitated by the presence of a Gender Ministry.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>prevalence_and_laws</span> <span class='op'>&lt;-</span> <span class='va'>prevalence</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>SUBJECT</span>, values_from <span class='op'>=</span> <span class='va'>Value</span><span class='op'>)</span></span>
+<span><span class='va'>prevalence_and_laws</span></span></code></pre>
+</div>
+<pre><code># A tibble: 129 × 7
+   LOCATION INDICATOR MEASURE FREQUENCY  TIME Flag.Codes PREVVIOLLIF…¹
+   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt; &lt;lgl&gt;              &lt;dbl&gt;
+ 1 AUS      VIOLWOMEN PC      A          2019 NA                  16.9
+ 2 AUT      VIOLWOMEN PC      A          2019 NA                  13  
+ 3 BEL      VIOLWOMEN PC      A          2019 NA                  24  
+ 4 CAN      VIOLWOMEN PC      A          2019 NA                   1.9
+ 5 CZE      VIOLWOMEN PC      A          2019 NA                  21  
+ 6 DNK      VIOLWOMEN PC      A          2019 NA                  32  
+ 7 FIN      VIOLWOMEN PC      A          2019 NA                  30  
+ 8 FRA      VIOLWOMEN PC      A          2019 NA                  26  
+ 9 DEU      VIOLWOMEN PC      A          2019 NA                  22  
+10 GRC      VIOLWOMEN PC      A          2019 NA                  19  
+# … with 119 more rows, and abbreviated variable name
+#   ¹​PREVVIOLLIFETIME</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>laws_2</span> <span class='op'>&lt;-</span> <span class='va'>laws_2</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>SUBJECT</span>, values_from <span class='op'>=</span> <span class='va'>Value</span><span class='op'>)</span></span>
+<span><span class='va'>laws_2</span></span></code></pre>
+</div>
+<pre><code># A tibble: 163 × 8
+   LOCATION INDICATOR MEASURE FREQUENCY  TIME Flag.C…¹ Gende…² LAWDO…³
+   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt; &lt;lgl&gt;    &lt;chr&gt;     &lt;dbl&gt;
+ 1 AUS      VIOLWOMEN IDX     A          2019 NA       Gender…    0.75
+ 2 AUT      VIOLWOMEN IDX     A          2019 NA       Gender…    0.25
+ 3 BEL      VIOLWOMEN IDX     A          2019 NA       Gender…    0.5 
+ 4 CAN      VIOLWOMEN IDX     A          2019 NA       Gender…    0.25
+ 5 CZE      VIOLWOMEN IDX     A          2019 NA       Gender…    0.75
+ 6 DNK      VIOLWOMEN IDX     A          2019 NA       Gender…    0.5 
+ 7 FIN      VIOLWOMEN IDX     A          2019 NA       Gender…    0.75
+ 8 FRA      VIOLWOMEN IDX     A          2019 NA       Gender…    0.25
+ 9 DEU      VIOLWOMEN IDX     A          2019 NA       Gender…    0.75
+10 GRC      VIOLWOMEN IDX     A          2019 NA       Gender…    0.25
+# … with 153 more rows, and abbreviated variable names ¹​Flag.Codes,
+#   ²​Gender_Ministry, ³​LAWDOMVIOL</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>prevalence_and_laws_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/merge.html'>merge</a></span><span class='op'>(</span><span class='va'>laws_2</span>, <span class='va'>prevalence_and_laws</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"LOCATION"</span>, <span class='st'>"TIME"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>prevalence_and_laws_2</span> <span class='op'>&lt;-</span> <span class='va'>prevalence_and_laws_2</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>LOCATION</span>, <span class='va'>TIME</span>, <span class='va'>Gender_Ministry</span>, <span class='va'>LAWDOMVIOL</span>, <span class='va'>PREVVIOLLIFETIME</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>prevalence_and_laws_2</span></span></code></pre>
+</div>
+<pre><code>    LOCATION TIME    Gender_Ministry LAWDOMVIOL PREVVIOLLIFETIME
+1        AFG 2019    Gender Ministry       0.75             60.8
+2        AGO 2019    Gender Ministry       0.75             34.8
+3        ALB 2019 No Gender Ministry       0.50             24.6
+4        ARM 2019 No Gender Ministry       0.75              8.2
+5        AUS 2019    Gender Ministry       0.75             16.9
+6        AUT 2019    Gender Ministry       0.25             13.0
+7        AZE 2019    Gender Ministry       0.75             13.5
+8        BDI 2019    Gender Ministry       0.50             46.7
+9        BEL 2019    Gender Ministry       0.50             24.0
+10       BEN 2019    Gender Ministry       0.50             68.6
+11       BFA 2019    Gender Ministry       0.75             11.5
+12       BGD 2019    Gender Ministry       0.75             53.3
+13       BGR 2019    Gender Ministry       0.75             23.0
+14       BIH 2019    Gender Ministry       0.50             13.1
+15       BLR 2019 No Gender Ministry       0.75             25.0
+16       BOL 2019 No Gender Ministry       0.25             64.1
+17       BRA 2019    Gender Ministry       0.25             33.5
+18       BTN 2019 No Gender Ministry       0.50             26.5
+19       CAF 2019    Gender Ministry       0.25             29.8
+20       CAN 2019    Gender Ministry       0.25              1.9
+21       CHE 2019    Gender Ministry       0.75              9.8
+22       CHL 2019    Gender Ministry       0.75              6.7
+23       CIV 2019    Gender Ministry       0.75             25.9
+24       CMR 2019    Gender Ministry       0.75             51.1
+25       COD 2019    Gender Ministry       0.75             50.7
+26       COL 2019    Gender Ministry       0.25             37.4
+27       CRI 2019    Gender Ministry       0.75             36.0
+28       CYP 2019    Gender Ministry       0.25             15.0
+29       CZE 2019    Gender Ministry       0.75             21.0
+30       DEU 2019    Gender Ministry       0.75             22.0
+31       DNK 2019    Gender Ministry       0.50             32.0
+32       DOM 2019    Gender Ministry       0.25             20.4
+33       ECU 2019 No Gender Ministry       0.50             37.5
+34       ESP 2019    Gender Ministry       0.50             13.0
+35       EST 2019    Gender Ministry       0.25             20.0
+36       ETH 2019    Gender Ministry       0.50             28.0
+37       FIN 2019    Gender Ministry       0.75             30.0
+38       FJI 2019    Gender Ministry       0.75             64.1
+39       FRA 2019    Gender Ministry       0.25             26.0
+40       GAB 2019 No Gender Ministry       0.75             48.6
+41       GBR 2019    Gender Ministry       0.75             29.0
+42       GEO 2019 No Gender Ministry       0.75              6.1
+43       GHA 2019    Gender Ministry       0.75             24.4
+44       GIN 2019    Gender Ministry       0.75             80.0
+45       GMB 2019    Gender Ministry       0.50             20.1
+46       GNQ 2019    Gender Ministry       1.00             56.9
+47       GRC 2019    Gender Ministry       0.25             19.0
+48       GTM 2019 No Gender Ministry       0.75             18.0
+49       HKG 2019 No Gender Ministry       0.75              9.4
+50       HND 2019    Gender Ministry       0.25             21.6
+51       HRV 2019 No Gender Ministry       0.25             13.0
+52       HTI 2019    Gender Ministry       0.75             20.8
+53       HUN 2019 No Gender Ministry       0.75             21.0
+54       IDN 2019    Gender Ministry       0.75             18.3
+55       IND 2019    Gender Ministry       0.50             28.7
+56       IRL 2019 No Gender Ministry       0.25             15.0
+57       IRN 2019    Gender Ministry       0.75             66.0
+58       IRQ 2019 No Gender Ministry       0.75             21.2
+59       ISL 2019 No Gender Ministry       0.25             22.4
+60       ITA 2019    Gender Ministry       0.75             19.0
+61       JAM 2019    Gender Ministry       0.75             19.7
+62       JOR 2019    Gender Ministry       0.75             23.6
+63       JPN 2019    Gender Ministry       0.75             15.4
+64       KAZ 2019 No Gender Ministry       0.75             16.5
+65       KEN 2019    Gender Ministry       0.50             39.4
+66       KGZ 2019 No Gender Ministry       0.75             25.4
+67       KHM 2019    Gender Ministry       0.50             20.9
+68       KOR 2019    Gender Ministry       0.25             16.5
+69       LAO 2019 No Gender Ministry       0.25             15.3
+70       LBN 2019    Gender Ministry       0.75             10.4
+71       LBR 2019    Gender Ministry       0.75             38.5
+72       LKA 2019    Gender Ministry       0.50             16.6
+73       LSO 2019    Gender Ministry       0.75             62.0
+74       LTU 2019    Gender Ministry       0.50             24.0
+75       LUX 2019    Gender Ministry       0.75             22.0
+76       LVA 2019 No Gender Ministry       0.75             32.0
+77       MAR 2019    Gender Ministry       0.75             30.0
+78       MDA 2019 No Gender Ministry       0.25             45.5
+79       MDG 2019    Gender Ministry       0.50             30.0
+80       MEX 2019    Gender Ministry       0.50             14.1
+81       MKD 2019    Gender Ministry       0.75             27.7
+82       MLI 2019    Gender Ministry       0.75             34.6
+83       MLT 2019 No Gender Ministry       0.25             15.0
+84       MMR 2019 No Gender Ministry       0.75             33.0
+85       MNG 2019 No Gender Ministry       0.25             31.2
+86       MOZ 2019    Gender Ministry       0.75             21.7
+87       MWI 2019    Gender Ministry       0.50             37.5
+88       NAM 2019    Gender Ministry       0.25             25.0
+89       NGA 2019    Gender Ministry       0.75             16.2
+90       NIC 2019    Gender Ministry       0.25             22.5
+91       NLD 2019    Gender Ministry       0.75             25.0
+92       NOR 2019    Gender Ministry       0.25             27.0
+93       NPL 2019    Gender Ministry       0.25             25.0
+94       NZL 2019    Gender Ministry       0.75             35.0
+95       PAK 2019 No Gender Ministry       0.50             85.0
+96       PER 2019    Gender Ministry       0.75             33.2
+97       PHL 2019 No Gender Ministry       0.75             16.9
+98       POL 2019    Gender Ministry       0.75             13.0
+99       PRT 2019    Gender Ministry       0.25             19.0
+100      PRY 2019    Gender Ministry       0.50             17.9
+101      ROU 2019 No Gender Ministry       0.25             24.0
+102      RUS 2019 No Gender Ministry       1.00             19.6
+103      RWA 2019    Gender Ministry       0.50             34.4
+104      SEN 2019    Gender Ministry       0.50             78.0
+105      SGP 2019 No Gender Ministry       0.50              6.1
+106      SLE 2019    Gender Ministry       0.50             45.3
+107      SLV 2019 No Gender Ministry       0.50             26.3
+108      SRB 2019 No Gender Ministry       0.25             23.7
+109      SVK 2019    Gender Ministry       0.25             23.0
+110      SVN 2019    Gender Ministry       0.25             13.0
+111      SWE 2019    Gender Ministry       0.25             28.0
+112      TCD 2019    Gender Ministry       0.75             28.6
+113      TGO 2019 No Gender Ministry       0.75             22.1
+114      THA 2019 No Gender Ministry       0.75             44.2
+115      TJK 2019 No Gender Ministry       0.75             20.3
+116      TLS 2019 No Gender Ministry       0.50             58.8
+117      TTO 2019    Gender Ministry       0.75             30.2
+118      TUN 2019    Gender Ministry       0.50             20.3
+119      TUR 2019    Gender Ministry       0.25             38.0
+120      TZA 2019    Gender Ministry       0.75             41.7
+121      UGA 2019    Gender Ministry       0.75             49.9
+122      UKR 2019 No Gender Ministry       0.75             13.2
+123      URY 2019 No Gender Ministry       0.75             14.8
+124      USA 2019 No Gender Ministry       0.50             35.6
+125      VNM 2019    Gender Ministry       0.75             34.4
+126      YEM 2019 No Gender Ministry       0.75             67.0
+127      ZAF 2019    Gender Ministry       0.50             20.6
+128      ZMB 2019    Gender Ministry       0.50             42.7
+129      ZWE 2019    Gender Ministry       0.50             35.4</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>prevalence_and_laws_3</span> <span class='op'>&lt;-</span> <span class='va'>prevalence_and_laws_2</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>Gender_Ministry_Presence <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>Gender_Ministry</span> <span class='op'>==</span> <span class='st'>"Gender Ministry"</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>prevalence_and_laws_3</span></span></code></pre>
+</div>
+<pre><code>    LOCATION TIME    Gender_Ministry LAWDOMVIOL PREVVIOLLIFETIME
+1        AFG 2019    Gender Ministry       0.75             60.8
+2        AGO 2019    Gender Ministry       0.75             34.8
+3        ALB 2019 No Gender Ministry       0.50             24.6
+4        ARM 2019 No Gender Ministry       0.75              8.2
+5        AUS 2019    Gender Ministry       0.75             16.9
+6        AUT 2019    Gender Ministry       0.25             13.0
+7        AZE 2019    Gender Ministry       0.75             13.5
+8        BDI 2019    Gender Ministry       0.50             46.7
+9        BEL 2019    Gender Ministry       0.50             24.0
+10       BEN 2019    Gender Ministry       0.50             68.6
+11       BFA 2019    Gender Ministry       0.75             11.5
+12       BGD 2019    Gender Ministry       0.75             53.3
+13       BGR 2019    Gender Ministry       0.75             23.0
+14       BIH 2019    Gender Ministry       0.50             13.1
+15       BLR 2019 No Gender Ministry       0.75             25.0
+16       BOL 2019 No Gender Ministry       0.25             64.1
+17       BRA 2019    Gender Ministry       0.25             33.5
+18       BTN 2019 No Gender Ministry       0.50             26.5
+19       CAF 2019    Gender Ministry       0.25             29.8
+20       CAN 2019    Gender Ministry       0.25              1.9
+21       CHE 2019    Gender Ministry       0.75              9.8
+22       CHL 2019    Gender Ministry       0.75              6.7
+23       CIV 2019    Gender Ministry       0.75             25.9
+24       CMR 2019    Gender Ministry       0.75             51.1
+25       COD 2019    Gender Ministry       0.75             50.7
+26       COL 2019    Gender Ministry       0.25             37.4
+27       CRI 2019    Gender Ministry       0.75             36.0
+28       CYP 2019    Gender Ministry       0.25             15.0
+29       CZE 2019    Gender Ministry       0.75             21.0
+30       DEU 2019    Gender Ministry       0.75             22.0
+31       DNK 2019    Gender Ministry       0.50             32.0
+32       DOM 2019    Gender Ministry       0.25             20.4
+33       ECU 2019 No Gender Ministry       0.50             37.5
+34       ESP 2019    Gender Ministry       0.50             13.0
+35       EST 2019    Gender Ministry       0.25             20.0
+36       ETH 2019    Gender Ministry       0.50             28.0
+37       FIN 2019    Gender Ministry       0.75             30.0
+38       FJI 2019    Gender Ministry       0.75             64.1
+39       FRA 2019    Gender Ministry       0.25             26.0
+40       GAB 2019 No Gender Ministry       0.75             48.6
+41       GBR 2019    Gender Ministry       0.75             29.0
+42       GEO 2019 No Gender Ministry       0.75              6.1
+43       GHA 2019    Gender Ministry       0.75             24.4
+44       GIN 2019    Gender Ministry       0.75             80.0
+45       GMB 2019    Gender Ministry       0.50             20.1
+46       GNQ 2019    Gender Ministry       1.00             56.9
+47       GRC 2019    Gender Ministry       0.25             19.0
+48       GTM 2019 No Gender Ministry       0.75             18.0
+49       HKG 2019 No Gender Ministry       0.75              9.4
+50       HND 2019    Gender Ministry       0.25             21.6
+51       HRV 2019 No Gender Ministry       0.25             13.0
+52       HTI 2019    Gender Ministry       0.75             20.8
+53       HUN 2019 No Gender Ministry       0.75             21.0
+54       IDN 2019    Gender Ministry       0.75             18.3
+55       IND 2019    Gender Ministry       0.50             28.7
+56       IRL 2019 No Gender Ministry       0.25             15.0
+57       IRN 2019    Gender Ministry       0.75             66.0
+58       IRQ 2019 No Gender Ministry       0.75             21.2
+59       ISL 2019 No Gender Ministry       0.25             22.4
+60       ITA 2019    Gender Ministry       0.75             19.0
+61       JAM 2019    Gender Ministry       0.75             19.7
+62       JOR 2019    Gender Ministry       0.75             23.6
+63       JPN 2019    Gender Ministry       0.75             15.4
+64       KAZ 2019 No Gender Ministry       0.75             16.5
+65       KEN 2019    Gender Ministry       0.50             39.4
+66       KGZ 2019 No Gender Ministry       0.75             25.4
+67       KHM 2019    Gender Ministry       0.50             20.9
+68       KOR 2019    Gender Ministry       0.25             16.5
+69       LAO 2019 No Gender Ministry       0.25             15.3
+70       LBN 2019    Gender Ministry       0.75             10.4
+71       LBR 2019    Gender Ministry       0.75             38.5
+72       LKA 2019    Gender Ministry       0.50             16.6
+73       LSO 2019    Gender Ministry       0.75             62.0
+74       LTU 2019    Gender Ministry       0.50             24.0
+75       LUX 2019    Gender Ministry       0.75             22.0
+76       LVA 2019 No Gender Ministry       0.75             32.0
+77       MAR 2019    Gender Ministry       0.75             30.0
+78       MDA 2019 No Gender Ministry       0.25             45.5
+79       MDG 2019    Gender Ministry       0.50             30.0
+80       MEX 2019    Gender Ministry       0.50             14.1
+81       MKD 2019    Gender Ministry       0.75             27.7
+82       MLI 2019    Gender Ministry       0.75             34.6
+83       MLT 2019 No Gender Ministry       0.25             15.0
+84       MMR 2019 No Gender Ministry       0.75             33.0
+85       MNG 2019 No Gender Ministry       0.25             31.2
+86       MOZ 2019    Gender Ministry       0.75             21.7
+87       MWI 2019    Gender Ministry       0.50             37.5
+88       NAM 2019    Gender Ministry       0.25             25.0
+89       NGA 2019    Gender Ministry       0.75             16.2
+90       NIC 2019    Gender Ministry       0.25             22.5
+91       NLD 2019    Gender Ministry       0.75             25.0
+92       NOR 2019    Gender Ministry       0.25             27.0
+93       NPL 2019    Gender Ministry       0.25             25.0
+94       NZL 2019    Gender Ministry       0.75             35.0
+95       PAK 2019 No Gender Ministry       0.50             85.0
+96       PER 2019    Gender Ministry       0.75             33.2
+97       PHL 2019 No Gender Ministry       0.75             16.9
+98       POL 2019    Gender Ministry       0.75             13.0
+99       PRT 2019    Gender Ministry       0.25             19.0
+100      PRY 2019    Gender Ministry       0.50             17.9
+101      ROU 2019 No Gender Ministry       0.25             24.0
+102      RUS 2019 No Gender Ministry       1.00             19.6
+103      RWA 2019    Gender Ministry       0.50             34.4
+104      SEN 2019    Gender Ministry       0.50             78.0
+105      SGP 2019 No Gender Ministry       0.50              6.1
+106      SLE 2019    Gender Ministry       0.50             45.3
+107      SLV 2019 No Gender Ministry       0.50             26.3
+108      SRB 2019 No Gender Ministry       0.25             23.7
+109      SVK 2019    Gender Ministry       0.25             23.0
+110      SVN 2019    Gender Ministry       0.25             13.0
+111      SWE 2019    Gender Ministry       0.25             28.0
+112      TCD 2019    Gender Ministry       0.75             28.6
+113      TGO 2019 No Gender Ministry       0.75             22.1
+114      THA 2019 No Gender Ministry       0.75             44.2
+115      TJK 2019 No Gender Ministry       0.75             20.3
+116      TLS 2019 No Gender Ministry       0.50             58.8
+117      TTO 2019    Gender Ministry       0.75             30.2
+118      TUN 2019    Gender Ministry       0.50             20.3
+119      TUR 2019    Gender Ministry       0.25             38.0
+120      TZA 2019    Gender Ministry       0.75             41.7
+121      UGA 2019    Gender Ministry       0.75             49.9
+122      UKR 2019 No Gender Ministry       0.75             13.2
+123      URY 2019 No Gender Ministry       0.75             14.8
+124      USA 2019 No Gender Ministry       0.50             35.6
+125      VNM 2019    Gender Ministry       0.75             34.4
+126      YEM 2019 No Gender Ministry       0.75             67.0
+127      ZAF 2019    Gender Ministry       0.50             20.6
+128      ZMB 2019    Gender Ministry       0.50             42.7
+129      ZWE 2019    Gender Ministry       0.50             35.4
+    Gender_Ministry_Presence
+1                          1
+2                          1
+3                          0
+4                          0
+5                          1
+6                          1
+7                          1
+8                          1
+9                          1
+10                         1
+11                         1
+12                         1
+13                         1
+14                         1
+15                         0
+16                         0
+17                         1
+18                         0
+19                         1
+20                         1
+21                         1
+22                         1
+23                         1
+24                         1
+25                         1
+26                         1
+27                         1
+28                         1
+29                         1
+30                         1
+31                         1
+32                         1
+33                         0
+34                         1
+35                         1
+36                         1
+37                         1
+38                         1
+39                         1
+40                         0
+41                         1
+42                         0
+43                         1
+44                         1
+45                         1
+46                         1
+47                         1
+48                         0
+49                         0
+50                         1
+51                         0
+52                         1
+53                         0
+54                         1
+55                         1
+56                         0
+57                         1
+58                         0
+59                         0
+60                         1
+61                         1
+62                         1
+63                         1
+64                         0
+65                         1
+66                         0
+67                         1
+68                         1
+69                         0
+70                         1
+71                         1
+72                         1
+73                         1
+74                         1
+75                         1
+76                         0
+77                         1
+78                         0
+79                         1
+80                         1
+81                         1
+82                         1
+83                         0
+84                         0
+85                         0
+86                         1
+87                         1
+88                         1
+89                         1
+90                         1
+91                         1
+92                         1
+93                         1
+94                         1
+95                         0
+96                         1
+97                         0
+98                         1
+99                         1
+100                        1
+101                        0
+102                        0
+103                        1
+104                        1
+105                        0
+106                        1
+107                        0
+108                        0
+109                        1
+110                        1
+111                        1
+112                        1
+113                        0
+114                        0
+115                        0
+116                        0
+117                        1
+118                        1
+119                        1
+120                        1
+121                        1
+122                        0
+123                        0
+124                        0
+125                        1
+126                        0
+127                        1
+128                        1
+129                        1</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>vaw_regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>PREVVIOLLIFETIME</span> <span class='op'>~</span> <span class='va'>Gender_Ministry_Presence</span> <span class='op'>+</span> <span class='va'>LAWDOMVIOL</span>, data <span class='op'>=</span> <span class='va'>prevalence_and_laws_3</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>vaw_regression</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = PREVVIOLLIFETIME ~ Gender_Ministry_Presence + LAWDOMVIOL, 
+    data = prevalence_and_laws_3)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-24.785 -10.259  -3.685   6.333  57.946 
+
+Coefficients:
+                         Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                22.680      4.710   4.816 4.13e-06 ***
+Gender_Ministry_Presence    1.818      3.156   0.576    0.566    
+LAWDOMVIOL                  8.747      6.801   1.286    0.201    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 16.34 on 126 degrees of freedom
+Multiple R-squared:  0.01549,   Adjusted R-squared:  -0.0001333 
+F-statistic: 0.9915 on 2 and 126 DF,  p-value: 0.3739</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># y = 22.680 + 1.818x1 + 8.747x2</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/datalorax/equatiomatic'>equatiomatic</a></span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://datalorax.github.io/equatiomatic/reference/extract_eq.html'>extract_eq</a></span><span class='op'>(</span><span class='va'>vaw_regression</span><span class='op'>)</span></span></code></pre>
+</div>
+<span class="math display">\[
+\operatorname{PREVVIOLLIFETIME} = \alpha + \beta_{1}(\operatorname{Gender\_Ministry\_Presence}) + \beta_{2}(\operatorname{LAWDOMVIOL}) + \epsilon
+\]</span>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://datalorax.github.io/equatiomatic/reference/extract_eq.html'>extract_eq</a></span><span class='op'>(</span><span class='va'>vaw_regression</span>, use_coefs <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><span class="math display">\[
+\operatorname{\widehat{PREVVIOLLIFETIME}} = 22.68 + 1.82(\operatorname{Gender\_Ministry\_Presence}) + 8.75(\operatorname{LAWDOMVIOL})
+\]</span></p>
+</div>
+<h2 id="discussion-and-limitations">Discussion and Limitations</h2>
+<!-- a brief (one paragraph) concluding section that summarizes your results, assesses the extent to which you find support for your hypothesis, describes limitations of your analysis and threats to inference, and states how your analysis could be improved (e.g., improved data that would be useful to collect) -->
+<!-- A conclusion section, including a recap of results, discussion of limitations of the study, and how to improve the study in the future (a paragraph) -->
+<p>For me, this might be all countries reporting, using UN countries to increase more measurement and likelihood of things, and a better and more reliable method of data collection, including gdp.</p>
+<h2 id="link">Link</h2>
+<!-- there must be a link to the GitHub repo that contains the source code to load, clean, and analyze the data and produce the article -->
+<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -1539,6 +2046,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
