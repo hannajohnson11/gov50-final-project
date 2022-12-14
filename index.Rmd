@@ -44,42 +44,8 @@ prevalence <- read.csv("PREVALENCE.csv")
 prevalence 
 
 ```
-```{r include=FALSE}
-no_ministry_countries <- c("HUN","ISL","IRL","USA","ALB","ARM","BLR","CHN","HRV","GEO","HKG","KAZ","LVA","MDA","PHL","ROU","RUS","SAU","SGP","SDN","THA","UKR","ARE","URY","BHR","BTN","BOL","COG","CUB","ECU","SLV","ERI","GAB","GTM","GNB","IRQ","KGZ","LAO","MNG","MMR","OMN","PNG","QAT","SWZ","SYR","TJK","TLS","TGO","TKM","UZB","YEM","BRN","MLT","TWN","PAK","KWT", "SRB")
 
-prevalence_2 <- prevalence |>
-  mutate(Gender_Ministry = "Gender Ministry") |>
-  mutate(Gender_Ministry = if_else(LOCATION %in% no_ministry_countries, "No Gender Ministry", Gender_Ministry))
-prevalence_2
-```
 
-```{r echo=FALSE}
-mean_prevalence_ministry <- prevalence_2 |>
-  filter(Gender_Ministry == "Gender Ministry") |>
-  summarize(mean_ministry = mean(Value, na.rm = TRUE)) |>
-  pull()
-
-mean_prevalence_no_ministry <- prevalence_2 |>
-  filter(Gender_Ministry == "No Gender Ministry") |>
-  summarize(mean_no_ministry = mean(Value, na.rm = TRUE)) |>
-  pull()
-
-prevalence_plot <- ggplot(data = prevalence_2, aes(x = Value, fill = Gender_Ministry)) +
-  geom_density(alpha = 0.5) +
-  geom_vline(aes(xintercept = mean_prevalence_ministry), color = "red") +
-  geom_vline(aes(xintercept = mean_prevalence_no_ministry), color = "blue") +
-# geom_histogram(mapping = aes(x = Value), stat = "count") +
-  # xlim(0, 100) +
-  # scale_x_continuous(breaks=c(0, 25, 50, 75, 100),
-  #       labels=c("0", "25", "50","75","100")) +
-  labs(x = "Reported Prevalence of Violence Against Women",
-       y = "Density",
-       title = "Figure 1",
-       fill = "")
-prevalence_plot
-# prevalence_plot + facet_wrap(~Gender_Ministry) 
-```
-This was my first attempt at trying to answer my research question on whether having a Ministry of Gender is correlated with better outcomes for women, particularly on violence against women.  This visualization demonstrates that the rates of violence against women is similar for countries with and without a Gender Ministry, with higher reported rates of violence for countries with a Gender Ministry, although in this visualization, it is unclear whether this is a statistically significant difference. The prevalence is measured in a percent of women who both experience and report violence against women, ranging from 0 to 100, although no countries reported a rate of 100.  However, it is notable to mention that over 30 countries in the dataset did not submit reports of violence against women, many of which are countries that do not have a gender ministry.  Thus, these results could be skewed by the fact that many countries, including those without a Gender Ministry, did not submit and may have interfered with the data.  Moreover, this also relies on reported violence against women, which is infamously extremely under-reported, so it is possible that higher reported prevalence of violence against women could be a good thing, since it could mean that women felt safe enough to report violence, which could have been facilitated by the presence of a Gender Ministry.
 
 ## Results
 <!-- a visualization of the data in question that speaks to your research question -->
@@ -119,6 +85,42 @@ laws_plot + facet_wrap(~Gender_Ministry)
 
 Figure 2 demonstrates that for countries with a gender ministry, there are fewer countries with harmful laws about violence against women, where the most harmful laws are 1 and the least harmful laws are 0.  It is notable that gender ministry is an expansive category here, including countries with a distinct Ministry of Gender, but also countries with a combined ministry, such as Ministry of Family and Gender, or Ministry of Social Issues with gender as a primary focus.  Countries without a gender ministry are countries that lack all these ministry options.  Thus, in each category of laws, in categories which mean more harmful laws, including 1 and 0.75 are more highly represented in the countries without a gender ministry or an office tangential to a gender ministry.  For countries with fewer harmful laws, including 0.5 and 0.25, countries with a gender ministry or an office adjacent to it are more highly represented.
 
+```{r include=FALSE}
+no_ministry_countries <- c("HUN","ISL","IRL","USA","ALB","ARM","BLR","CHN","HRV","GEO","HKG","KAZ","LVA","MDA","PHL","ROU","RUS","SAU","SGP","SDN","THA","UKR","ARE","URY","BHR","BTN","BOL","COG","CUB","ECU","SLV","ERI","GAB","GTM","GNB","IRQ","KGZ","LAO","MNG","MMR","OMN","PNG","QAT","SWZ","SYR","TJK","TLS","TGO","TKM","UZB","YEM","BRN","MLT","TWN","PAK","KWT", "SRB")
+
+prevalence_2 <- prevalence |>
+  mutate(Gender_Ministry = "Gender Ministry") |>
+  mutate(Gender_Ministry = if_else(LOCATION %in% no_ministry_countries, "No Gender Ministry", Gender_Ministry))
+prevalence_2
+```
+
+```{r echo=FALSE}
+mean_prevalence_ministry <- prevalence_2 |>
+  filter(Gender_Ministry == "Gender Ministry") |>
+  summarize(mean_ministry = mean(Value, na.rm = TRUE)) |>
+  pull()
+
+mean_prevalence_no_ministry <- prevalence_2 |>
+  filter(Gender_Ministry == "No Gender Ministry") |>
+  summarize(mean_no_ministry = mean(Value, na.rm = TRUE)) |>
+  pull()
+
+prevalence_plot <- ggplot(data = prevalence_2, aes(x = Value, fill = Gender_Ministry)) +
+  geom_density(alpha = 0.5) +
+  geom_vline(aes(xintercept = mean_prevalence_ministry), color = "red") +
+  geom_vline(aes(xintercept = mean_prevalence_no_ministry), color = "blue") +
+# geom_histogram(mapping = aes(x = Value), stat = "count") +
+  # xlim(0, 100) +
+  # scale_x_continuous(breaks=c(0, 25, 50, 75, 100),
+  #       labels=c("0", "25", "50","75","100")) +
+  labs(x = "Reported Prevalence of Violence Against Women",
+       y = "Density",
+       title = "Figure 3",
+       fill = "")
+prevalence_plot
+# prevalence_plot + facet_wrap(~Gender_Ministry) 
+```
+Figure 3 was my first attempt at trying to answer my research question on whether having a Ministry of Gender is correlated with better outcomes for women, particularly on violence against women.  This visualization demonstrates that the rates of violence against women is similar for countries with and without a Gender Ministry, with higher reported rates of violence for countries with a Gender Ministry, although in this visualization, it is unclear whether this is a statistically significant difference. The prevalence is measured in a percent of women who both experience and report violence against women, ranging from 0 to 100, although no countries reported a rate of 100.  However, it is notable to mention that over 30 countries in the dataset did not submit reports of violence against women, many of which are countries that do not have a gender ministry.  Thus, these results could be skewed by the fact that many countries, including those without a Gender Ministry, did not submit and may have interfered with the data.  Moreover, this also relies on reported violence against women, which is infamously extremely under-reported, so it is possible that higher reported prevalence of violence against women could be a good thing, since it could mean that women felt safe enough to report violence, which could have been facilitated by the presence of a Gender Ministry.
 
 ```{r include=FALSE}
 prevalence_and_laws <- prevalence |>
