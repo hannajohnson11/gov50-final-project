@@ -75,7 +75,7 @@ dependent_plot
 
 <!-- You should also interpret (in plain English) the main coefficient of interest in your regression, comment on the statistical significance of the estimated coefficient, and  say whether or not you believe the coefficient to represent a causal effect. -->
 ```{r include=FALSE}
-laws$LOCATION[2] <- "AUT"
+laws$LOCATION[2] <- "AUT" 
 ```
 
 ```{r include=FALSE}
