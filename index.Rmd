@@ -114,8 +114,6 @@ geom_histogram(mapping = aes(x = Value, y = ..prop..), stat = "count", binwidth 
        y = "Percentage of Countries with a Gender Ministry",
        title = "Figure 2")
 laws_plot + facet_wrap(~Gender_Ministry)
-
-
 ```
 
 
