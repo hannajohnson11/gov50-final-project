@@ -23,7 +23,7 @@ I began collecting data by locating the Violence Against Women dataset from the 
 
 Next, to establish whether a country has a gender ministry, I manually searched for details on 163 countries to align with the data from the OECD data source. I individually looked up each country reported in the OECD data, found either governmental websites or news sources reporting the creation of a new department, or utilized some UN reports on the subject too, to present an updated registry.  I measured between 0 and 1, with 0 indicating no gender ministry whatsoever and 1 indicating some sort of gender ministry.  There were no numbers in between these extremes, as I combined any sort of gender ministry as a positive number.  In future research, I may consider splitting it further, to distinguish between equality ministries, family ministries, and others.  However, for the purposes of this study, I was unsure how to categorize them in terms of effectiveness, and since all ministries included focus on gender to some high degree, I chose to categorize them as the same.  Additionally, there are so many different names for the ministries, but they perform very similar roles, and I was not sure how to conduct an unbiased review of these.  Thus, the presence (or lack thereof) of a gender ministry was my independent variable. 
 
-Finally, my research design is cross-sectional, since I will be using reported rates of violence against women and an analysis of existing laws from one point in time.  Additionally, I did not interfere, but rather observed the existing data without any manipulation to deduce if there was any correlation between the existence of gender ministries and the rates of violence against women, when physically controlling for the country's laws and whether they specifically harm women.  Below is a plot (Figure 1) which summarizes the dependent variable.
+Finally, my research design is cross-sectional, since I will be using reported rates of violence against women and an analysis of existing laws from one point in time.  Additionally, I did not interfere, but rather observed the existing data without any manipulation to deduce if there was any correlation between the existence of gender ministries and the rates of violence against women, when physically controlling for the country's laws and whether they specifically harm women.  Figure 1 summarizes the dependent variable.
 
 The data that I referenced can be found here https://data.oecd.org/inequality/violence-against-women.htm  
 
@@ -45,7 +45,24 @@ prevalence
 
 ```
 
+```{r include=FALSE}
+no_ministry_countries <- c("HUN","ISL","IRL","USA","ALB","ARM","BLR","CHN","HRV","GEO","HKG","KAZ","LVA","MDA","PHL","ROU","RUS","SAU","SGP","SDN","THA","UKR","ARE","URY","BHR","BTN","BOL","COG","CUB","ECU","SLV","ERI","GAB","GTM","GNB","IRQ","KGZ","LAO","MNG","MMR","OMN","PNG","QAT","SWZ","SYR","TJK","TLS","TGO","TKM","UZB","YEM","BRN","MLT","TWN","PAK","KWT", "SRB")
 
+prevalence_4 <- prevalence |>
+  mutate(Gender_Ministry = "Gender Ministry") |>
+  mutate(Gender_Ministry = if_else(LOCATION %in% no_ministry_countries, "No Gender Ministry", Gender_Ministry))
+prevalence_4
+```
+
+```{r echo=FALSE}
+dependent_plot <- ggplot(data = prevalence_4, aes(x = Value)) +
+  geom_density(alpha = 0.5) +
+  
+  labs(x = "Violence Against Women",
+       y = "Density",
+       title = "Figure 1")
+dependent_plot
+```
 
 ## Results
 <!-- a visualization of the data in question that speaks to your research question -->
